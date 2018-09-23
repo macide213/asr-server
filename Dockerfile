@@ -40,6 +40,6 @@ RUN make 1> /dev/null
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
-EXPOSE 9000
+EXPOSE 80
 
 CMD /run.sh
