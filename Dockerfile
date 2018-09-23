@@ -20,12 +20,14 @@ RUN apt-get install -y zlib1g \
     libfcgi \
     libfcgi-dev \
     spawn-fcgi \
-    wget 
+    wget \
+    nginx
 
 WORKDIR /home
 RUN git clone https://github.com/api-ai/asr-server asr-server
 RUN wget https://github.com/api-ai/api-ai-english-asr-model/releases/download/1.0/api.ai-kaldi-asr-model.zip
 RUN unzip api.ai-kaldi-asr-model.zip
+COPY nginx.conf /etc/nginx/
 
 WORKDIR /home/asr-server
 RUN /home/asr-server/configure
